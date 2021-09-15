@@ -1308,7 +1308,7 @@ function sequentialSearch(transaction, connect, addresses, rq, callback) {
 
   function searching(rs) {
     lastStatusCode = rs.status;
-    if(rs.status === 503)
+    if(rs.status === 503 && addresses.length > 0)
       return next();
     else if(rs.status > 100)
       onresponse = callback;
